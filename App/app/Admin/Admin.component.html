@@ -1,0 +1,128 @@
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-sm-auto bg-light sticky-top">
+          <div class="d-flex flex-sm-column flex-row flex-nowrap bg-light align-items-center sticky-top">
+              <a href="/" class="d-block p-3 link-dark text-decoration-none" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Icon-only">
+              </a>
+              <ul class="nav nav-pills nav-flush flex-sm-column flex-row flex-nowrap mb-auto mx-auto text-center align-items-center">
+                  <li class="nav-item">
+                    <a routerLink="Admin"><i class="bi bi-ui-checks-grid fs-1"></i></a>
+                  </li>
+                  &nbsp;
+                  <li>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
+                      <i class="bi bi-file-plus fs-1"></i>                   </button>
+                   </li>
+                   &nbsp;
+                  <li>
+                    <button type="button" class="btn btn-primary" routerLink="/Editproducts">
+                      <i class="bi bi-bag-plus-fill fs-1"></i>                    </button>
+                   </li>
+                   &nbsp;
+                  <li>
+                    <button type="button" class="btn btn-primary" routerLink="/offer">
+                          <i class="bi-heart fs-1"></i>
+                    </button>
+                  </li>
+              </ul>
+          </div>
+      </div>
+      <div class="col-sm p-3 min-vh-100">
+        <div class="row">
+          <div class="col-sm" style="margin-left: 50px;">
+            <div class="card text-white bg-secondary mb-3" style="max-width: 20rem;">
+              <div class="card-body">
+                <h4 class="card-title" style="color:white">Total Products</h4>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjmuotjIrxRJR7NAXnDIQalI_37zUS2TevhQennS5oliGDXi4q_2ze6qAKYuen5BESGy4&usqp=CAU">
+                <p class="card-text">10</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm sec" >
+            <div class="card text-white bg-secondary mb-3" style="max-width: 20rem;">
+              <div class="card-body">
+                <h4 class="card-title" style="color:white">Total Categories</h4>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4InFmR2xdQbxQUEJEil-efZJdoD_w-r2Ca1F-2ib4yyKup7nbjV2Rt2Nnx4bHvvzfDHs&usqp=CAU">
+                <p class="card-text">14</p>
+              </div>
+            </div>
+          </div>
+          <div class="col sec">
+            <div class="card text-white bg-secondary mb-3" style="max-width: 20rem;">
+              <div class="card-body">
+                <h4 class="card-title" style="color:white">Total Customers</h4>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKFmGlzn4da8qJj6RlFvQ8wbyE7KCU7JxptvBanOBqG30RK7Spz5EHMrgLhL83Rz1hti8&usqp=CAU">
+                <p class="card-text">27</p>
+              </div>
+            </div>
+           </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <form #product="ngForm">
+          <div class="mb-3">
+            <label for="id" class="col-form-label">Product ID:</label>
+            <input type="text" class="form-control"  name="pid" #productid=ngModel [(ngModel)]="pid">
+          </div>
+          <div class="mb-3">
+            <label for="productname" class="col-form-label">Product Name:</label>
+            <input class="form-control" name="pname" #productname=ngModel [(ngModel)]="pname"/>
+          </div>
+          <div class="mb-3">
+            <label for="price" class="col-form-label">Image:</label>
+            <input type="text" class="form-control" name="url"  #productimage=ngModel [(ngModel)]="url"/>
+          </div>
+          <div class="mb-3">
+            <label for="quantity" class="col-form-label">Quantity (in grams):</label>
+            <input class="form-control" name="quantity"  #productquantity=ngModel [(ngModel)]="quantity"/>
+          </div>
+          <div class="mb-3">
+            <label for="price" class="col-form-label">Price:</label>
+            <input class="form-control" name="price"  #productprice=ngModel [(ngModel)]="price"/>
+          </div>
+          <div class="mb-3">
+            <label for="price" class="col-form-label">Product details:</label>
+            <input class="form-control" name="details"  #productdetails=ngModel [(ngModel)]="details"/>
+          </div>
+          <div class="mb-3">
+            <label for="price" class="col-form-label">Stock available:</label>
+            <input class="form-control" name="stock"  #productstock=ngModel [(ngModel)]="stock"/>
+          </div>
+          <div class="mb-3">
+            <label for="price" class="col-form-label">Category:</label>
+            <input class="form-control" name="stock"  #productcategory=ngModel [(ngModel)]="category"/>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" (click)="Addproduct(product.value)"  class="btn btn-primary">Add product</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  var exampleModal = document.getElementById('exampleModal')
+exampleModal.addEventListener('show.bs.modal', function (event) {
+  // Button that triggered the modal
+  var button = event.relatedTarget
+  // Extract info from data-bs-* attributes
+  var recipient = button.getAttribute('data-bs-whatever')
+  // If necessary, you could initiate an AJAX request here
+  // and then do the updating in a callback.
+  //
+  // Update the modal's content.
+  var modalTitle = exampleModal.querySelector('.modal-title')
+  var modalBodyInput = exampleModal.querySelector('.modal-body input')
+
+  modalTitle.textContent = 'New message to ' + recipient
+  modalBodyInput.value = recipient
+})
+</script>

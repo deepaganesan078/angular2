@@ -1,0 +1,261 @@
+<router-outlet></router-outlet>
+<!-- <p>hi {{loggedinuser.fname}}</p> -->
+<div class="offertemplate" *ngIf="offer.isofferexit===true">
+ <h1>{{offer.offername}}</h1>
+ <h3>{{offer.rate}}%</h3>
+ <span>time left : {{offer.distance}}ms</span>
+ <div class="timer">
+  <div id="box">
+    {{offer.day}}
+   <p> Day</p>
+  </div>
+  <div id="box">
+    {{offer.hours}}
+     <p>Hours</p>
+  </div>
+  <div id="box">
+    {{offer.minutes}}
+    <p>Minutes</p>
+  </div>
+  <div id="box">
+    {{offer.seconds}}
+    <p>Seconds</p>
+  </div>
+</div>
+<img src="https://t4.ftcdn.net/jpg/03/68/28/91/360_F_368289139_vuM1SbUKDunGVNAFQ3vIZmQnLFyoeCtQ.jpg"></div>
+ <!-- Carousel Start -->
+ <div  *ngIf="offer.getstatus()" [ngClass]="{ 'hidden':offer.iscontentdisplay }">
+  <div>
+    <div class="quote" style="margin-top: 20px;">
+      <div class="quote-item" style="margin-left: 15%;">
+          <img style="width:80%;height:400px; filter:blur(1px)" src={{data.url}} alt="Image">
+          <div class="carousel-caption">
+              <div class="container">
+                  <div class="row justify-content-start">
+                      <div class="col quotebody">
+                          <h6 class="display-2 mb-5 animated slideInDown">{{data.quote}}</h6>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+ <div *ngIf="!offer.getstatus()" class="container-fluid p-0 mb-5 wow fadeIn" data-wow-delay="0.05s" style="margin-top:20px">
+  <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+          <div class="carousel-item active" style="margin-left: 15%;">
+              <img style="width:70%;height:25%" src="assets/img/carousel-1.jpg" alt="Image">
+              <div class="carousel-caption">
+                  <div class="container">
+                      <div class="row justify-content-start">
+                          <div class="col-lg-7">
+                              <h1 class="display-2 mb-5 animated slideInDown">Organic Food Is Good For Health</h1>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+      <div class="carousel-item" style="margin-left: 15%;">
+        <img style="width:70%;height:25%" src="https://ochsner-craft.s3.amazonaws.com/blog/articles/_930x524_crop_center-center_75_none/Top-picks-for-healthy-gluten-free-cookies.jpg" alt="Image">
+        <div class="carousel-caption">
+
+        </div>
+    </div>
+    <div class="carousel-item" style="margin-left: 15%;">
+      <img style="width:70%;height:25%" src="assets/img/chips.jpg" alt="Image">
+      <div class="carousel-caption">
+
+      </div>
+  </div>
+  </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#header-carousel"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+      </button>
+  </div>
+</div>
+<!-- Carousel End -->
+<!-- <app-offer></app-offer> -->
+
+ <!-- About Start -->
+ <div class="container-xxl py-5">
+  <div class="container">
+      <div class="row g-5 align-items-center">
+          <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+              <div class="about-img position-relative overflow-hidden p-5 pe-0">
+                  <img class="img-fluid w-75" src="https://st3.depositphotos.com/10638998/14219/i/450/depositphotos_142198936-stock-photo-woman-holding-grocery-bag.jpg">
+              </div>
+          </div>
+          <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+              <h1 class="display-5 mb-4">Best Grocery Products</h1>
+              <p class="mb-4">Grocery stores are a destination for consumers who need to purchase food and household products for both everyday use and special occasions. The wide selection of products and brands, as well as high inventory levels, allow consumers to shop the goods that their household may need for a significant period of time.</p>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- About End -->
+
+<!--categories-->
+<div class="container-fluid bg-light bg-icon py-6 mb-5">
+      <div class="section-header text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+          <h1 class="display-5 mb-3">Categories</h1></div>
+<div class="container-xxl py-5">
+  <div class="container">
+      <div class="row g-0 gx-5 align-items-end">
+          <div class="col-lg text-start text-lg-end wow slideInRight" data-wow-delay="0.1s">
+            <div id="tab-1" class="tab-pane fade show p-0 active">
+              <div class="row g-2">
+                  <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                      <div class="product-item">
+                          <div class="position-relative bg-light overflow-hidden">
+                              <img class="img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbnL5g_oquV-oRvYkWogl-VyBO2ya3VCkRUA&usqp=CAU" alt="">
+                              <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">New</div>
+                          </div>
+                          <div class="text-center p-4">
+                              <p>Fruits/Veges</p>
+                             </div>
+                      </div>
+                  </div>
+                  <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="product-item">
+                        <div class="position-relative bg-light overflow-hidden">
+                            <img class="img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVEMINlDLzugXNlG67EEI2ShuXU3iy7aZLxg&usqp=CAU" alt="">
+                            <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">New</div>
+                        </div>
+                        <div class="text-center p-4">
+                            <p>Grains/Flour</p>
+                           </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                  <div class="product-item">
+                      <div class="position-relative bg-light overflow-hidden">
+                          <img class="img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5mSbDopuzU_7LOG92Fp6tmq0mMa5WUYmUgQ&usqp=CAU" alt="">
+                          <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">New</div>
+                      </div>
+                      <div class="text-center p-4">
+                          <p>HouseHolds</p>
+                         </div>
+                  </div>
+              </div> <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                <div class="product-item">
+                    <div class="position-relative bg-light overflow-hidden">
+                        <img class="img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRujcgbuf_SRb31mCkLTsjCi8R813otY5fQcA&usqp=CAU" alt="">
+                        <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">New</div>
+                    </div>
+                    <div class="text-center p-4">
+                        <p>Meat/Flesh</p>
+                       </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+              <div class="product-item">
+                  <div class="position-relative bg-light overflow-hidden">
+                      <img class="img-fluid" src="https://www.snackandbakery.com/ext/resources/ci/2022/05/12/SSE22-Snacks-Feature-Image.jpg?1670345825" alt="">
+                      <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">New</div>
+                  </div>
+                  <div class="text-center p-4">
+                      <p>Snacks/Bakery</p>
+                     </div>
+              </div>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+            <div class="product-item">
+                <div class="position-relative bg-light overflow-hidden">
+                    <img class="img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLfZbdLIYu6a57W8xYChY132vgPTmRXrq5rw&usqp=CAU" alt="">
+                    <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">New</div>
+                </div>
+                <div class="text-center p-4">
+                    <p>Beauty Product</p>
+                   </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+          <div class="product-item">
+              <div class="position-relative bg-light overflow-hidden">
+                  <img class="img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS25Fz0OsDLnv-thEYCGHOvCt44MuBOQXscwg&usqp=CAU" alt="">
+                  <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">New</div>
+              </div>
+              <div class="text-center p-4">
+                  <p>Dairy Products</p>
+                 </div>
+          </div>
+      </div>
+            </div>
+           </div>
+          </div>
+
+      </div>
+      </div><br>
+      <div class="col-12 text-center">
+        <a class="btn btn-primary rounded-pill py-3 px-5" routerLink="products">Browse More Products</a>
+    </div>
+      </div>
+<!-- Product End -->
+
+<!--categories end-->
+
+<!-- Testimonial Start -->
+<div class="container-fluid bg-light bg-icon py-6 mb-5">
+  <div class="container">
+      <div class="section-header text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+          <h1 class="display-5 mb-3">Customer Review</h1>
+          <p>Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
+      </div>
+      <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+          <div class="testimonial-item position-relative bg-white p-5 mt-4">
+              <i class="fa fa-quote-left fa-3x text-primary position-absolute top-0 start-0 mt-n4 ms-5"></i>
+              <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+              <div class="d-flex align-items-center">
+                  <div class="ms-3">
+                      <h5 class="mb-1">Client Name</h5>
+                      <span>Profession</span>
+                  </div>
+              </div>
+          </div>
+          <div class="testimonial-item position-relative bg-white p-5 mt-4">
+              <i class="fa fa-quote-left fa-3x text-primary position-absolute top-0 start-0 mt-n4 ms-5"></i>
+              <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+              <div class="d-flex align-items-center">
+                  <div class="ms-3">
+                      <h5 class="mb-1">Client Name</h5>
+                      <span>Profession</span>
+                  </div>
+              </div>
+          </div>
+          <div class="testimonial-item position-relative bg-white p-5 mt-4">
+              <i class="fa fa-quote-left fa-3x text-primary position-absolute top-0 start-0 mt-n4 ms-5"></i>
+              <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+              <div class="d-flex align-items-center">
+                  <div class="ms-3">
+                      <h5 class="mb-1">Client Name</h5>
+                      <span>Profession</span>
+                  </div>
+              </div>
+          </div>
+          <div class="testimonial-item position-relative bg-white p-5 mt-4">
+              <i class="fa fa-quote-left fa-3x text-primary position-absolute top-0 start-0 mt-n4 ms-5"></i>
+              <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+              <div class="d-flex align-items-center">
+                  <div class="ms-3">
+                      <h5 class="mb-1">Client Name</h5>
+                      <span>Profession</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- Testimonial End -->
+

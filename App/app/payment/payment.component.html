@@ -1,0 +1,67 @@
+<section class="w-100" style="background-color: #97e359;">
+  <div class="container py-5 h-75">
+    <div class="row d-flex justify-content-center align-items-center h-75">
+      <div class="col col-xl-10">
+        <div class="card" style="border-radius: 1rem;" >
+          <div class="row g-0 w-100 h-100" >
+            <div class="col-md-6 col-lg-5 d-none d-md-block">
+              <div class="d-flex align-items-center mb-3 pb-1" style="margin-left: 10px;">
+                <i class="fas fa-cubes fa-2x me-3" style="color: #06b77f;"></i>
+                <span class="h1 fw-bold mb-0">Payment</span>
+              </div>
+              <img src="https://img.freepik.com/free-vector/variety-payment-methods-with-flat-design_23-2147678373.jpg?2&w=740&t=st=1687401241~exp=1687401841~hmac=b5f51e8ba3c3e97de6c294441a0dcbeb355ac3c4a08c562207b49150e459aba6" alt="paymentform" class="img-fluid h-75" style="border-radius: 1rem 0 0 1rem;" />
+            </div>
+            <div class="col-md-6 col-lg-7 d-flex align-items-center">
+              <div class="card-body p-4 p-lg-5 text-black">
+                <form [formGroup]="payment" (ngSubmit)="PayNow(payment.value,userid)">
+                  <div class="form-outline mb-2">
+                    <label class="form-label" for="form2Example17">Payment Id :</label>
+                    <input type="text" id="form2Example17" value="{{paymentid}}" formControlName="paymentid" class="form-control form-control-lg" />
+                  </div>
+                  <div *ngIf="payment.controls['cardnumber'].invalid && payment.controls['cardnumber'].touched">
+                    <small  style="color:red" *ngIf="payment.controls['cardnumber'].errors?.['required']">Please enter card number</small>
+                    <small style="color:red" *ngIf="payment.controls['cardnumber'].errors?.['maxlength']">Please card number should be maximum 19 number</small>
+                    <small style="color:red" *ngIf="payment.controls['cardnumber'].errors?.['minlength']">Please card number should be minimum 8 number</small>
+                    <small style="color:red" *ngIf="payment.controls['cardnumber'].errors?.['pattern']">Please enter proper card number Only digits allowed</small>
+                  </div>
+                  <div class="form-outline mb-2">
+                    <label class="form-label" for="form2Example27">card Number</label>
+                    <input type="text" id="form2Example27" formControlName="cardnumber" class="form-control form-control-lg" />
+                  </div>
+                  <div *ngIf="payment.controls['Expdate'].invalid && payment.controls['Expdate'].touched">
+                    <small  style="color:red" *ngIf="payment.controls['Expdate'].errors?.['required']">Please enter Expire date</small>
+                   </div>
+                  <div class="form-outline mb-2">
+                    <label class="form-label" for="form2Example27">Exp Date</label>
+                    <input type="date" id="form2Example27" formControlName="Expdate" class="form-control form-control-lg" />
+                  </div>
+                  <div *ngIf="payment.controls['cvvnumber'].invalid && payment.controls['cvvnumber'].touched">
+                    <small  style="color:red" *ngIf="payment.controls['cvvnumber'].errors?.['required']">Please enter cvvnumber</small>
+                    <small style="color:red" *ngIf="payment.controls['cvvnumber'].errors?.['maxlength']">Please card number should be maximum 4 number</small>
+                    <small style="color:red" *ngIf="payment.controls['cvvnumber'].errors?.['pattern']">Please enter proper cvvnumber Only digits allowed</small>
+                  </div>
+                  <div class="form-outline mb-2">
+                    <label class="form-label" for="form2Example27">cvv Number</label>
+                    <input type="text" id="form2Example27" formControlName="cvvnumber" class="form-control form-control-lg" />
+                  </div>
+                  <div *ngIf="payment.controls['TotalAmount'].invalid && payment.controls['TotalAmount'].touched">
+                    <small  style="color:red" *ngIf="payment.controls['TotalAmount'].errors?.['required']">Please enter card number</small>
+                   </div>
+                  <div class="form-outline mb-2">
+                    <label class="form-label" for="form2Example27">TotalAmount</label>
+                    <input type="text" id="form2Example27" formControlName="TotalAmount" value="{{amount}}" class="form-control form-control-lg" />
+                  </div>
+                  <div class="pt-1 mb-4">
+                    <button class="btn btn-primary w-100" [disabled]="payment.invalid"><b>Pay Now</b></button>
+                  </div>
+
+                  <a class="small text-muted" href="#!">show other option </a>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

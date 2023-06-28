@@ -1,0 +1,102 @@
+<!-- Section: Design Block -->
+<section class="text-center text-lg-start">
+
+  <!-- Jumbotron -->
+  <div class="container py-4 w-75">
+    <div class="row g-0 align-items-center">
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <div class="card cascading-right" style="
+            background: hsla(0, 0%, 100%, 0.55);
+            backdrop-filter: blur(30px);
+            ">
+          <div class="card-body p-5 shadow-5 text-center">
+            <h2 class="fw-bold mb-5">Sign up now</h2>
+            <form [formGroup]="Register" (ngSubmit)="Submitform(Register.value)">
+              <!-- 2 column grid layout with text inputs for the first and last names -->
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div *ngIf="Register.controls['fname'].invalid && Register.controls['fname'].touched">
+                    <small  style="color:red" *ngIf="Register.controls['fname'].errors?.['required']">Please enter first name</small>
+                    <small style="color:red" *ngIf="Register.controls['fname'].errors?.['minlength']">Please name should be minimum 5 character</small>
+                    <small style="color:red" *ngIf="Register.controls['fname'].errors?.['pattern']">Only Alphabets</small>
+                   </div>
+                  <div class="form-outline">
+                    <input type="text" id="form3Example1"  formControlName="fname" class="form-control" />
+                    <label class="form-label" for="form3Example1">First name</label>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div *ngIf="Register.controls['lname'].invalid && Register.controls['lname'].touched">
+                    <small  style="color:red" *ngIf="Register.controls['lname'].errors?.['required']">Please enter last name</small>
+                    <small style="color:red" *ngIf="Register.controls['lname'].errors?.['minlength']">Please name should be minimum 1 character</small>
+                    <small style="color:red" *ngIf="Register.controls['lname'].errors?.['pattern']">Only Alphabets</small>
+                   </div>
+                  <div class="form-outline">
+                    <input type="text" id="form3Example2" formControlName="lname" class="form-control" />
+                    <label class="form-label" for="form3Example2">Last name</label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Email input -->
+              <div *ngIf="Register.controls['emailid'].invalid && Register.controls['emailid'].touched">
+                    <small  style="color:red" *ngIf="Register.controls['emailid'].errors?.['required']">Please enter emailid</small>
+                    <small style="color:red" *ngIf="Register.controls['emailid'].errors?.['email']">Please enter proper emailid</small>
+                   </div>
+              <div class="form-outline mb-4">
+                <input type="email" id="form3Example3" formControlName="emailid" class="form-control" />
+                <label class="form-label" for="form3Example3">Email address</label>
+              </div>
+
+              <!--Phone number-->
+              <div *ngIf="Register.controls['phonenumber'].invalid && Register.controls['phonenumber'].touched">
+                 <small style="color:red" *ngIf="Register.controls['phonenumber'].errors?.['required']">please enter Phonenumber</small>
+                 <small style="color:red" *ngIf="Register.controls['phonenumber'].errors?.['pattern']">please enter proper Phonenumber</small>
+                 <small style="color:red" *ngIf="Register.controls['phonenumber'].errors?.['minlength']">please enter Phonenumber</small>
+                </div>
+              <div class="form-outline mb-4">
+                <input type="phonenumber" id="form3Example4" formControlName="phonenumber" class="form-control" />
+                <label class="form-label" for="form3Example3">Phone Number</label>
+              </div>
+
+              <!-- Password input -->
+              <div *ngIf="Register.controls['password'].invalid && Register.controls['password'].touched">
+                <small style="color:red" *ngIf="Register.controls['password'].errors?.['required']">Please enter password</small>
+                <small style="color:red" *ngIf="Register.controls['password'].errors?.['pattern']">Please enter proper password</small>
+                <small style="color:red" *ngIf="Register.controls['password'].errors?.['minlength']">Password should be minimum 8 character</small>
+               </div>
+              <div class="form-outline mb-4">
+                <input type="password"  formControlName="password" class="form-control" />
+                <label class="form-label" >Password</label>
+              </div>
+
+              <!-- Password input -->
+              <div *ngIf="Register.controls['cpassword'].invalid && Register.controls['cpassword'].touched">
+                <small style="color:red" *ngIf="Register.controls['cpassword'].errors?.['required']">Please enter password</small>
+                <!-- <small style="color:red" *ngIf="Register.controls['password'].errors?.['pattern']">Please enter proper password</small> -->
+                <small style="color:red" *ngIf="Register.controls['cpassword'].errors?.['minlength']">Password should be minimum 8 character</small>
+               </div>
+              <div class="form-outline mb-4">
+                <input type="password"  formControlName="cpassword" class="form-control" />
+                <label class="form-label" >Confirm Password</label>
+              </div>
+
+              <!-- Submit button -->
+              <button [disabled]="!Register.valid" class="btn btn-primary btn-block mb-4">
+                Sign up
+              </button>
+
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <img src="https://www.livingwellspendingless.com/wp-content/uploads/2016/03/27413338_ml.jpg" class="w-100 h-75 rounded-4 shadow-4"
+          alt="" />
+      </div>
+    </div>
+  </div>
+  <!-- Jumbotron -->
+</section>
+<!-- Section: Design Block -->

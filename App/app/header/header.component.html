@@ -1,0 +1,83 @@
+
+<nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><strong style="color:orangered;font-size:40px;font-family:'Times New Roman', Times, serif;"><span style="color:rgb(16, 214, 16);font-size:30px;">G</span>-Mart</strong></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"> </span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor02">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link active"routerLink="" >Home
+          <span class="visually-hidden">(current)</span></a></li>
+
+        <li class="nav-item">
+          <a  class="nav-link active"  routerLink="Admin" *ngIf="service.adminlogin()==='true'">EditProduct</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active"  routerLink="products">products</a>
+        </li>
+        <li class="nav-item">
+          <a  class="nav-link active" *ngIf="service.login()==='false'&& service.adminlogin()==='false'" routerLink="Login">Login</a>
+          <a  class="nav-link active" *ngIf="service.login()==='true'||service.adminlogin()==='true'" (click)="service.logout()">Logout</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link active" *ngIf="service.login()==='true'"><i class="fas fa-user-circle fa-2x"><span style="font-size:17px;">GMART</span></i></a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" style="color:aliceblue" routerLink="profile">Profile</a>
+            <a class="dropdown-item" style="color:aliceblue" routerLink="myorder">My order</a>
+          </div>
+        </li>
+        <a class="nav-link active w-50" routerLink="/AddToCart"><span style="color:white"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"><span style="font-size:17px;">{{cartcount}}</span></i></span>
+        </a>
+       </ul>
+    </div>
+  </div>
+</nav>
+
+
+<!--Profile-->
+
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-left: 30%;">
+  <div class="modal-dialog">
+    <div class="modal-content" style="background-color: rgb(20, 47, 71); border-radius:10px; color:white">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">User Profile</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="margin-left: 50px;">
+        <h6>User Id : {{loggedinuser.id}}</h6>
+        <h6>User Name : {{loggedinuser.fname}} {{loggedinuser.lname}}</h6>
+        <h6>User emailid : {{loggedinuser.emailid}}</h6>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" routerLink="/AddToCart">Viewcart</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!--profile end-->
+<script>
+  var exampleModal = document.getElementById('exampleModal')
+exampleModal.addEventListener('show.bs.modal', function (event) {
+  // Button that triggered the modal
+  var button = event.relatedTarget
+  // Extract info from data-bs-* attributes
+  var recipient = button.getAttribute('data-bs-whatever')
+  // If necessary, you could initiate an AJAX request here
+  // and then do the updating in a callback.
+  //
+  // Update the modal's content.
+  var modalTitle = exampleModal.querySelector('.modal-title')
+  var modalBodyInput = exampleModal.querySelector('.modal-body input')
+
+  modalTitle.textContent = 'New message to ' + recipient
+  modalBodyInput.value = recipient
+})
+</script>
+
+
+
+<router-outlet></router-outlet>

@@ -1,0 +1,91 @@
+  <section class="w-100">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col">
+          <p><span class="h2">Available Products</span><span class="h4"></span></p>
+
+          <div class="card mb-4"  *ngFor="let i of Product">
+            <div class="card-body p-4">
+
+              <div class="row align-items-center">
+                <div class="col-md-2">
+                  <img src={{i.url}}
+                    class="img-fluid" alt="Generic placeholder image">
+                </div>
+                <div class="col-md-2 d-flex justify-content-center">
+                  <div>
+                    <p class="small text-muted mb-4 pb-2">Name</p>
+                    <p class="lead fw-normal mb-0">{{i.pname}}</p>
+                  </div>
+                </div>
+                <div class="col-md-2 d-flex justify-content-center">
+                  <div>
+                    <p class="small text-muted mb-4 pb-2">Quantity (in grams)</p>
+                    <p class="lead fw-normal mb-0">{{i.quantity}}</p>
+                  </div>
+                </div>
+                <div class="col-md-2 d-flex justify-content-center">
+                  <div>
+                    <p class="small text-muted mb-4 pb-2">Price</p>
+                    <p class="lead fw-normal mb-0">{{i.price}}</p>
+                  </div>
+                </div>
+                <div class="col-md-2 d-flex justify-content-center">
+                  <button type="button" (click)="deleteproduct(i.pid)" class="btn btn-dark btn-lg me-2">delete</button>
+                  <button type="button"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" (click)="update(i)" class="btn btn-warning btn-lg">update</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">New Product</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form #product="ngForm">
+            <div class="mb-3">
+              <label for="id" class="col-form-label">Product ID:</label>
+              <input type="text" class="form-control"   value={{pid}} name="pid" #productid=ngModel [(ngModel)]="pid" required>
+            </div>
+            <div class="mb-3">
+              <label for="productname" class="col-form-label">Product Name:</label>
+              <input class="form-control" name="pname" value={{pname}} #productname=ngModel [(ngModel)]="pname" required />
+            </div>
+            <div class="mb-3">
+              <label for="price" class="col-form-label">Image:</label>
+              <input type="text" class="form-control" name="url" value={{url}} #productimage=ngModel [(ngModel)]="url" required/>
+            </div>
+            <div class="mb-3">
+              <label for="quantity" class="col-form-label">Quantity:</label>
+              <input class="form-control" name="quantity" value={{quantity}} #productquantity=ngModel [(ngModel)]="quantity" required/>
+            </div>
+            <div class="mb-3">
+              <label for="price" class="col-form-label">Price:</label>
+              <input class="form-control" name="price" value={{price}} #productprice=ngModel [(ngModel)]="price" required/>
+            </div>
+            <div class="mb-3">
+              <label for="price" class="col-form-label">Product details:</label>
+              <input class="form-control" name="details" value={{details}} #productdetails=ngModel [(ngModel)]="details" required/>
+            </div>
+            <div class="mb-3">
+              <label for="price" class="col-form-label">Stock available:</label>
+              <input class="form-control" name="stock" value={{stock}} #productstock=ngModel [(ngModel)]="stock" required/>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" (click)="updateProduct(pid,product.value)"  class="btn btn-primary">Add product</button>
+        </div>
+      </div>
+    </div>
+  </div>
